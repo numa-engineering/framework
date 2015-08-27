@@ -230,6 +230,17 @@ class SqlServerGrammar extends Grammar {
 	}
 
 	/**
+	 * Create the column definition for a uniqueidentifier type.
+	 *
+	 * @param  \Illuminate\Support\Fluent  $column
+	 * @return string
+	 */
+	protected function typeUniqueIdentifier(Fluent $column)
+	{
+		return "uniqueidentifier";
+	}
+
+	/**
 	 * Create the column definition for a string type.
 	 *
 	 * @param  \Illuminate\Support\Fluent  $column

@@ -1,12 +1,25 @@
 <?php namespace Illuminate\Database;
 
 use Closure;
+use Illuminate\Database\Schema\SqlServerBuilder;
 use Doctrine\DBAL\Driver\PDOSqlsrv\Driver as DoctrineDriver;
 use Illuminate\Database\Query\Processors\SqlServerProcessor;
 use Illuminate\Database\Query\Grammars\SqlServerGrammar as QueryGrammar;
 use Illuminate\Database\Schema\Grammars\SqlServerGrammar as SchemaGrammar;
 
 class SqlServerConnection extends Connection {
+
+	/**
+	 * Get a schema builder instance for the connection.
+	 *
+	 * @return \Illuminate\Database\Schema\SqlServerBuilder
+	 */
+	public function getSchemaBuilder()
+	{
+		if (is_null($this->schemaGrammar)) { $this->useDefaultSchemaGrammar(); }
+
+		return new SqlServerBuilder($this);
+	}
 
 	/**
 	 * Execute a Closure within a transaction.
