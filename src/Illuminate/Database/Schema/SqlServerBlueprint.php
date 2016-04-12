@@ -3,7 +3,7 @@
 class SqlServerBlueprint extends Blueprint {
 
 	/**
-	 * Create a new string column on the table.
+	 * Create a new uniqueidentifier column on the table.
 	 *
 	 * @param  string  $column
 	 * @param  int  $length

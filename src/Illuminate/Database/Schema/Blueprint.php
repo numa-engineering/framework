@@ -658,6 +658,18 @@ class Blueprint {
 	}
 
 	/**
+	 * Create a new uniqueidentifier column on the table.
+	 *
+	 * @param  string  $column
+	 * @param  int  $length
+	 * @return \Illuminate\Support\Fluent
+	 */
+	public function uniqueidentifier($column)
+	{
+		return $this->addColumn('char', $column, array('length' => 36));
+	}
+
+	/**
 	 * Add the proper columns for a polymorphic table.
 	 *
 	 * @param  string  $name
